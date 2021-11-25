@@ -1,0 +1,19 @@
+{
+    "about-title": "About me",
+    "name": "Ezequiel Del Vitto",
+    "subname": "Full Stack Developer - English Translator",
+    "description": "Hi! My name is Ezequiel and I am a Trainee Full Stack Developer. My stack involves HTML5, CSS3, Javascript, React, Mongo, Node and Express.",
+    "description2": "Besides, I am an English Certified Translator with over 6 years of experience, translating both literary and certified texts.",
+    "cv": "Download CV",
+    "skills": "Skills",
+    "diploma1": "HTML and CSS course completion certificate",
+    "diploma2": "Javascript course completion certificate",
+    "diploma3": "React course completion certificate",
+    "diploma4": "GitHub course completion certficate",
+    "projects": "Projects",
+    "projects-title1": "See demo",
+    "projects-title2": "See code on GitHub",
+    "contact": "Contact",
+    "contact2": "LET'S GET IN TOUCH!",
+    "contact3": "SEND"
+}

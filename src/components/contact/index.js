@@ -1,8 +1,16 @@
 import { Button, Paper, Radio, TextField, makeStyles, Typography } from "@material-ui/core"
 import {purple} from "@material-ui/core/colors"
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next"
 
 const Contact = ({title, dark, id}) => {
+
+    const { t, i18n } = useTranslation();
+
+    function handleClick(lang) {
+      i18n.changeLanguage(lang);
+    }
+
     const classes = useStyles();
     const [value, setValue] = useState("Mandame un mensaje")
 
@@ -16,37 +24,15 @@ const Contact = ({title, dark, id}) => {
                 <Typography variant="h3">{title}</Typography>
                 <Paper className={classes.root}>
                     <div className={classes.titleandchoices}>
-                        <Typography variant="h5">CONTÁCTAME</Typography>
+                        <Typography variant="h5">{t('contact2')}</Typography>
                         <div className={classes.choices}>
-                            <span>Mandame un mensaje</span>
-                            <Radio
-                                value="Mandame un mensaje"
-                                checked={value === "Mandame un mensaje"}
-                                color="primary"
-                                onChange={handleChange}
-                            />
-                            <span>Pedime un presupuesto</span>
-                            <Radio
-                                value="Pedime un presupuesto"
-                                checked={value === "Pedime un presupuesto"}
-                                color="primary"
-                                onChange={handleChange}
-                            />
                         </div>
                     </div>
                     <form action="https://formspree.io/f/xpzkonaj" method="POST" className={classes.form} noValidate autoComplete="off">
-                        <TextField label="name" name="fname"/>
+                        <TextField label="name" name="name"/>
                         <TextField label="e-mail" name="email"/>
-                        {
-                            value === "Pedime un presupuesto" ? (
-                                <>
-                                <TextField label="Tipo de proyecto"/>
-                                <TextField label="Presupuesto estimado"/> 
-                                </>
-                            ) : null
-                        }
-                        <TextField label="Mensaje" name="message"/>
-                        <Button variant="contained" type="submit">Enviar</Button>
+                        <TextField label="message" name="message"/>
+                        <Button variant="contained" type="submit">{t('contact3')}</Button>
                     </form>
                 </Paper>   
             </div>

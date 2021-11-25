@@ -1,7 +1,43 @@
 import { Link, Card, CardMedia, CardContent, Grid, makeStyles, Typography } from "@material-ui/core"
-import skillsData from "../skillsData";
+import cert1 from "../images/cert1.jpg"
+import cert2 from "../images/cert2.jpg"
+import cert3 from "../images/cert3.jpg"
+import cert4 from "../images/cert4.jpg"
+import { useTranslation } from "react-i18next"
 
 const Projects = ({title, dark, id}) => {
+
+    const { t, i18n } = useTranslation();
+
+    function handleClick(lang) {
+      i18n.changeLanguage(lang);
+    }
+
+    const skillsData = [
+        {
+            title: [t('diploma1')],
+            image: cert1,
+            link: "https://i.ibb.co/bdrNv3G/cert1.jpg",
+    
+        },
+        {
+            title: [t('diploma2')],
+            image: cert2,
+            link: "https://i.ibb.co/16vqNHV/cert2.jpg",
+        },
+        {
+            title: [t('diploma3')],
+            image: cert3,
+            link: "https://i.ibb.co/z8F6VRy/cert3.jpg",
+        },
+        {
+            title: [t('diploma4')],
+            image: cert4,
+            link: "https://i.ibb.co/J2nbNd7/cert4.jpg",
+        },
+    
+    ];
+
     const classes = useStyles();
     return (
         <div className={`${classes.section} ${dark && classes.sectiondark}`}>

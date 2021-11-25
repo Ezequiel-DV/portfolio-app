@@ -1,7 +1,8 @@
 import { AppBar, makeStyles, Toolbar, IconButton, Drawer, Divider, ListItem, ListItemIcon } from "@material-ui/core"
-import logo from "../images/LOGOEDV.png"
 import logo2 from "../images/logoLinkedin.png"
 import logo3 from "../images/logoGmail.png"
+import en from "../images/united-kingdom.png"
+import spa from "../images/spain.png"
 import { Link, animateScroll as scroll } from "react-scroll"
 import { List } from "@material-ui/core"
 import InfoIcon from '@material-ui/icons/Info';
@@ -11,30 +12,38 @@ import ContactMailIcon from '@material-ui/icons/ContactMail';
 import MenuIcon from "@material-ui/icons/Menu"
 import CancelIcon from "@material-ui/icons/Cancel"
 import {useState} from "react"
+import { useTranslation } from "react-i18next"
+
 
 const Navbar = () => {
+    const { t, i18n } = useTranslation();
+
+    function handleClick(lang) {
+      i18n.changeLanguage(lang);
+    }
+
     const classes = useStyles();
     const [open, setOpen] = useState(false)
 
     const links = [
         {
             id: "about",
-            text: "Sobre mi",
+            text: [t('about-title')],
             icon: <InfoIcon fontsize="large" className={classes.about}/>
         },
         {
             id: "skills",
-            text: "Habilidades",
+            text: [t('skills')],
             icon: <EmojiObjectsIcon fontsize="large" className={classes.light}/>
         },
         {
             id: "projects",
-            text: "Proyectos",
+            text: [t('projects')],
             icon: <BuildIcon fontsize="large" className={classes.projects}/>
         },
         {
             id: "contact",
-            text: "Contacto",
+            text: [t('contact')],
             icon: <ContactMailIcon fontsize="large" className={classes.contact}/>
         },
     ]
@@ -42,7 +51,8 @@ const Navbar = () => {
         <>
         <AppBar position="sticky" className={classes.root}>
             <Toolbar className={classes.toolbar}>
-                <img src={logo} className={classes.logo} alt="Logo"/>
+                <a onClick={()=>handleClick('en')}><img src={en} alt="" className={classes.logoEN}/></a>
+                <a onClick={()=>handleClick('spa')}><img src={spa} alt=""className={classes.logoSPA}/></a>
                 <a href="https://www.linkedin.com/in/ezequiel-del-vitto/" target="_blank"><img src={logo2} className={classes.logoLink} alt="Logo"/></a>
                 <a href="mailto:delvittoezequiel@gmail.com" target="_blank"><img src={logo3} className={classes.logoG} alt="Logo"/></a>
                 <List className={classes.menu}>
@@ -121,12 +131,19 @@ const useStyles = makeStyles((theme) => ({
             cursor: "pointer"
         } 
     },
-    logo: {
-        height: "2rem",
+    logoEN: {
+        height: "2.5rem",
         objectFit: "contain",
         "&:hover": {
             cursor: "pointer"
         }
+    },
+    logoSPA: {
+        height: "2.5rem",
+        objectFit: "contain",
+        "&:hover": {
+            cursor: "pointer"
+            }
     },
     about: {
         color: "#34B2E8",

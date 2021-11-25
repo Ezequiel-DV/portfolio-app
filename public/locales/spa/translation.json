@@ -1,0 +1,19 @@
+{
+    "about-title": "Sobre mi",
+    "name": "Ezequiel Del Vitto",
+    "subname": "Desarrollador Full Stack - Traductor Público de inglés",
+    "description": "¡Hola! Me llamo Ezequiel y soy desarrollador full stack. Mi stack tecnológico es HTML5, CSS3, Javascript, React, Mongo, Node y Express.",
+    "description2": "Además, soy traductor público de inglés; mi experiencia abarca desde traducción de textos literarios a documentos públicos.",
+    "cv": "Descargar CV",
+    "skills": "Habilidades",
+    "diploma1": "Certificado de curso de HTML y CSS",
+    "diploma2": "Certificado de curso de Javascript",
+    "diploma3": "Certificado de curso de React",
+    "diploma4": "Certificado de curso de Git y Github",
+    "projects": "Proyectos",
+    "projects-title1": "Ver pagina",
+    "projects-title2": "Codigo en GitHub",
+    "contact": "Contacto",
+    "contact2": "¡CONTÁCTAME!",
+    "contact3": "ENVIAR"
+}

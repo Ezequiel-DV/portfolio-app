@@ -3,6 +3,7 @@ import cert2 from "../components/images/cert2.jpg"
 import cert3 from "../components/images/cert3.jpg"
 import cert4 from "../components/images/cert4.jpg"
 
+
 const skillsData = [
     {
         title: "Certificado de curso de HTML y CSS",

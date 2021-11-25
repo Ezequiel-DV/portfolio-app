@@ -2,14 +2,21 @@ import { Card, CardContent, CardActions, Button, CardMedia, makeStyles, Typograp
 import { borderRadius } from "@material-ui/system";
 import profile1 from "../images/profile1.jpeg"
 import TypeWriterEffect from "react-typewriter-effect"
-import pdf from "../images/EzequielDelVitto.pdf"
+import pdf from "../images/Ezequiel-Del Vitto- CV.pdf"
+import { useTranslation } from "react-i18next"
 
 const About = ({ title, dark, id}) => {
+    const { t, i18n } = useTranslation();
+
+    function handleClick(lang) {
+      i18n.changeLanguage(lang);
+    }
+
     const classes = useStyles();
     return (
         <div className={`${classes.section} ${dark && classes.sectiondark}`}>
             <div className={classes.sectioncontent} id={id}>
-                <Typography variant="h3">{title}</Typography>
+                <Typography variant="h3">{t('about-title')}</Typography>
                 <Card className={classes.card}>
                     <CardMedia image={profile1} className={classes.media} title="picture"/>
                     <CardContent className={classes.cardcontent}>
@@ -21,22 +28,20 @@ const About = ({ title, dark, id}) => {
                             typeSpeed={50}
                         />
                         <TypeWriterEffect
-                            text="Frontend developer - Traductor público de inglés"
+                            text="Full Stack Developer - English Translator"
                             textStyle={{fontSize: "1.2rem", fontWeight: "500px"}}
                             startDelay={2000}
                             cursorColor="black"
                             typeSpeed={50}
                         />
                         <Typography variant="h6" color="textSecondary">
-                        <p>¡Hola! Soy Ezequiel y estoy buscando abrirme paso en el ámbito de la programación. Mi stack tecnológico es HTML5, CSS3, Javascript y React.</p>
-                        <p>Además, soy traductor público de inglés; mi experiencia abarca desde traducción de textos literarios a documentos públicos.</p>
+                        <p>{t('description')}</p>
+                        <p>{t('description2')}</p>
                         </Typography>
                     </CardContent>
                     <CardActions>
                         <Button variant="contained" className={classes.pdfbutton}>
-                            <a href={pdf} download>
-                            Descargar CV
-                            </a>
+                        <a href={pdf}>DOWNLOAD CV</a>
                         </Button>
                     </CardActions>
                 </Card>
@@ -83,14 +88,17 @@ const useStyles = makeStyles((theme) => ({
         position: "absolute",
         bottom: "4rem",
         right: "4rem",
-        [theme.breakpoints.down("sm")]: {
-            bottom: "2.5rem",
-            right: "1rem"
+        [theme.breakpoints.up("sm")]: {
+            bottom: "0.5rem",
+            right: "0.5rem"
         },
         backgroundColor: "tomato",
-        padding: theme.spacing(3),
+        padding: theme.spacing(1),
         "&:hover": {
             backgroundColor: "#fff",
+        },
+        "&: ul": {
+            listStyleType: "none",
         },
         "& a": {
             color: "fff",
