@@ -28,7 +28,7 @@ const About = ({ title, dark, id}) => {
                             typeSpeed={50}
                         />
                         <TypeWriterEffect
-                            text="Full Stack Developer - English Translator"
+                            text="Full Stack Developer - English Certified Translator"
                             textStyle={{fontSize: "1.2rem", fontWeight: "500px"}}
                             startDelay={2000}
                             cursorColor="black"
