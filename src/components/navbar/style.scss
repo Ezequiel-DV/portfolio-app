@@ -1,0 +1,85 @@
+.nav {
+    height: auto;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-around;
+    top: 0; 
+    right: 0; 
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 0.1rem 0.2rem 0.1rem 0.2rem;
+    background: rgb(0, 28, 73);
+}
+
+.nav-item{
+    list-style: none;
+}
+
+.nav-link {
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    -webkit-transition: 400ms;
+    transition: 400ms;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+.nav img {
+      width: 4%;
+      padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+      cursor: pointer;
+  }
+
+.nav-menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 3rem;
+}
+.nav-toggler div{
+    width: 2.5rem;
+    height: 0.2rem;
+    margin: 0.4rem;
+    background: darkgray;
+    transition: 0.4s ease-in;
+}
+.nav-toggler{
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-toggler {
+        display: block;
+    }
+    .nav-menu{
+        position: fixed;
+        top: 7vh;
+        right: 0;
+        width: 50%;
+        height: 93vh;
+        background: rgb(0, 28, 73);
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: 0.5s ease-in;
+    }
+}
+
+.nav-active{
+    transform: translateX(0);
+}
+
+.toggle .line1{
+    transform: rotate(-45deg) translate(-4px, 5px);
+}
+.toggle .line2{
+    opacity: 0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-4px, -5px);
+}

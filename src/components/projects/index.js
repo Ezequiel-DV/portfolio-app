@@ -1,10 +1,12 @@
-import { Link, Card, CardMedia, CardContent, Grid, makeStyles, Typography } from "@material-ui/core"
-import picture1 from "../images/project4.png"
-import picture2 from "../images/project1.png"
-import picture3 from "../images/project2.png"
+import Project from "./Project"
+import "../projects/style.scss"
+import project1 from "../../media/project1.png"
+import project2 from "../../media/project2.png"
+import project3 from "../../media/project3.png"
 import { useTranslation } from "react-i18next"
 
-const Projects = ({title, dark, id}) => {
+
+function Projects() {
 
     const { t, i18n } = useTranslation();
 
@@ -12,90 +14,48 @@ const Projects = ({title, dark, id}) => {
       i18n.changeLanguage(lang);
     }
 
-    const projectsData = [
+    const projects = [
         {
-            title: [t('projects-title1')],
-            title2: [t('projects-title2')],
-            image: picture1,
-            link: "https://form-app-ezequiel-dv.vercel.app/",
-            link2: "https://github.com/Ezequiel-DV/form-app"
-    
+            title: [t('form-title')],
+            description: [t('form-desc')],
+            github: "https://github.com/Ezequiel-DV/form-app",
+            deployed: "https://form-app-ezequiel-dv.vercel.app/",
+            img: project1
         },
         {
-            title: [t('projects-title1')],
-            title2: [t('projects-title2')],
-            image: picture2,
-            link: "https://catalog-app-six.vercel.app/",
-            link2: "https://github.com/Ezequiel-DV/catalog-app"
+            title: [t('catalog-title')],
+            description: [t('catalog-desc')],
+            github: "https://github.com/Ezequiel-DV/catalog-app",
+            deployed: "https://catalog-app-six.vercel.app/",
+            img: project2
         },
         {
-            title: [t('projects-title1')],
-            title2: [t('projects-title2')],
-            image: picture3,
-            link: "https://task-app-omega.vercel.app/",
-            link2: "https://github.com/Ezequiel-DV/task-app"
-        },
-    ];
+            title: [t('todolist-title')],
+            description: [t('todolist-desc')],
+            github: "https://github.com/Ezequiel-DV/task-app",
+            deployed: "https://task-app-omega.vercel.app/",
+            img: project3
+        }
+    ]
 
-
-    const classes = useStyles();
     return (
-        <div className={`${classes.section} ${dark && classes.sectiondark}`}>
-            <div className={classes.sectioncontent} id={id}>
-                <Typography variant="h3">{title}</Typography>
-                <Grid container className={classes.grid}>
-                    {
-                        projectsData.map(({title, title2, image, link, link2}, index)=>(
-                            <Grid item key={index} xs={12} sm={6} md={4}>
-                                <Card className={classes.card}>
-                                    <CardMedia image={image} className={classes.caratula}/>
-                                    <CardContent className={classes.titulos}>
-                                        <Link href={link} color="primary" target="_blank" rel="noopener noreferrer">
-                                            {title}
-                                        </Link>
-                                        <Link href={link2} color="primary" target="_blank" rel="noopener noreferrer">
-                                            {title2}
-                                        </Link>
-                                    </CardContent>
-                                </Card>
-                            </Grid>
-                        ))
-                    }
-                </Grid>
+        <div className="wrapper" id="projects">
+            <h2>{t('projects')}</h2>
+            <div className= "projects">
+                {
+                    projects.map(project => {
+                        return <Project
+                                title={project.title}
+                                description={project.description}
+                                github={project.github}
+                                deployed={project.deployed}
+                                img={project.img}
+                                key={Math.floor(Math.random() * 100000)}/>
+                    })
+                }
             </div>
         </div>
     )
 }
 
-const useStyles = makeStyles((theme) => ({
-    section: {
-        minHeight: "100vh",
-    },
-    sectiondark: {
-        background: "#333",
-        color: "#fff",
-    },
-    sectioncontent: {
-        maxWidth: "90vw",
-        margin: "0 auto",
-        padding: theme.spacing(5),
-    },
-    grid: {
-        marginTop: theme.spacing(10),
-    },
-    card: {
-        maxWidth: 345,
-        minHeight: 275,
-        margin: theme.spacing(3),
-    },
-    titulos: {
-        display: "flex",
-        flexDirection: "column"
-    },
-    caratula: {
-        height: 0,
-        paddingTop: '56.25%', // 16:9
-    }
-  }))
-
-export default Projects
+export default Projects;

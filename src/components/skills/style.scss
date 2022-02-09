@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Mukta:wght@500&family=Readex+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Mukta:wght@500&display=swap');
+
+
+.title-container {
+    justify-content: center;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 34px;
+    padding: 15px;
+    background: radial-gradient(circle, #100d14 50%, #190a6d 100%);
+}
+
+.title-container h3 {
+    font-family: 'Readex Pro', sans-serif;
+    color: #f3e9e9;
+    font-size: 3rem;
+    text-align: center;
+    padding: 0.1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-wrapper {
+    width: 25%;
+    background-color: #f3e9e9;
+    border-radius: 8px;
+    text-align: center;
+    padding: 5px;
+    .img-container {
+        width: 100%;
+        border-radius: 1px;
+        overflow: hidden;
+        img {
+            width: 100%
+        }
+    }
+}
